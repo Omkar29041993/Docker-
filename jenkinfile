@@ -17,7 +17,7 @@ node()
     stage "Push docker image to docker registry"
         sh 'docker push omkar29041993/dockerassignment'
         
-    stage "Remove docker container after testing"
+    stage "Remove docker container"
         sh 'docker rm -f -v $(docker ps -aq)'
         
         
