@@ -10,15 +10,15 @@ node()
     stage "Create docker container"
         sh 'docker run -d -p 4000:80 friendlyhello'
         
-    stage "Remove docker container after testing"
-        sh 'docker rm -f -v $(docker ps -aq)'
-        
     stage "Tag docker image"
         sh 'docker rmi -f omkar29041993/newpython'
         sh 'docker tag friendlyhello omkar29041993/newpython'
         
     stage "Push docker image to docker registry"
         sh 'docker push omkar29041993/newpython'
+        
+    stage "Remove docker container after testing"
+        sh 'docker rm -f -v $(docker ps -aq)'
         
     stage "Remove all docker image present on workspace"
         sh 'docker rmi -f $(docker images -aq)'
