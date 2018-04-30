@@ -22,5 +22,6 @@ node()
         sh 'sleep 15'
         
     stage "Remove all docker image present on workspace"
-        sh 'docker rmi -f $(docker images -aq)'
+        sh 'docker rmi python:2.7-slim'
+        sh 'docker rmi friendelyhello'
 }
