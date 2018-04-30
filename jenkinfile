@@ -23,5 +23,5 @@ node()
         
     stage "Remove all docker image present on workspace"
         sh 'docker rmi python:2.7-slim'
-        sh 'docker rmi friendelyhello'
+        sh 'docker rmi friendlyhello'
 }
