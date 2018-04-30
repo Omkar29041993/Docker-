@@ -10,13 +10,15 @@ node()
     stage "Create docker container"
         input 'Create docker container?'
         sh 'docker run -d -p 4000:80 friendlyhello'
-        sh 'Check application at location-ec2-18-216-49-252.us-east-2.compute.amazonaws.com:4000'
+        sh 'echo "Check application at location-ec2-18-216-49-252.us-east-2.compute.amazonaws.com:4000"'
         
     stage "Tag docker image"
+        input 'Tag Docker image?'
         sh 'docker rmi -f omkar29041993/dockerassignment'
         sh 'docker tag friendlyhello omkar29041993/dockerassignment'
         
     stage "Push docker image to docker registry"
+        input 'Push docker image to docker registry?'
         sh 'docker push omkar29041993/dockerassignment'
         
     stage "Remove docker container"
