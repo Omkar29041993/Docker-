@@ -21,7 +21,7 @@ node()
         sh 'docker rm -f -v $(docker ps -aq)'
         
         
-    stage "Remove all docker image present on workspace"
+    stage "Remove docker images"
         sh 'docker rmi python:2.7-slim'
         sh 'docker rmi friendlyhello'
 }
