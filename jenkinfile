@@ -8,7 +8,9 @@ node()
         sh 'docker build -t friendlyhello .'
         
     stage "Create docker container"
+        input 'Create docker container?'
         sh 'docker run -d -p 4000:80 friendlyhello'
+        sh 'Check application at location-ec2-18-216-49-252.us-east-2.compute.amazonaws.com:4000'
         
     stage "Tag docker image"
         sh 'docker rmi -f omkar29041993/dockerassignment'
