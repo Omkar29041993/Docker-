@@ -11,8 +11,8 @@ node()
         sh 'docker run -d -p 4000:80 friendlyhello'
         
     stage "Tag docker image"
-        sh 'docker rmi -f omkar29041993/newpython'
-        sh 'docker tag friendlyhello omkar29041993/newpython'
+        sh 'docker rmi -f omkar29041993/dockerassignment'
+        sh 'docker tag friendlyhello omkar29041993/dockerassignment'
         
     stage "Push docker image to docker registry"
         sh 'docker push omkar29041993/dockerassignment'
