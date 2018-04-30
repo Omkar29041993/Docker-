@@ -19,6 +19,7 @@ node()
         
     stage "Remove docker container after testing"
         sh 'docker rm -f -v $(docker ps -aq)'
+        sh 'sleep 15'
         
     stage "Remove all docker image present on workspace"
         sh 'docker rmi -f $(docker images -aq)'
