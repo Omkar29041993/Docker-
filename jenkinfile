@@ -15,7 +15,7 @@ node()
         sh 'docker tag friendlyhello omkar29041993/newpython'
         
     stage "Push docker image to docker registry"
-        sh 'docker push omkar29041993/newpython'
+        sh 'docker push omkar29041993/dockerassignment'
         
     stage "Remove docker container after testing"
         sh 'docker rm -f -v $(docker ps -aq)'
