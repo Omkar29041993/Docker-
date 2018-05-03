@@ -2,7 +2,7 @@ version: "3"
 services:
   web:
     # replace username/repo:tag with your name and image details
-    image: omkar29041993/dockerassignment:latest
+    image: omkar29041993/dockerassignment:stable
     deploy:
       replicas: 1
       resources:
