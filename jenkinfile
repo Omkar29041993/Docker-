@@ -18,17 +18,18 @@ node()
         sh 'docker tag friendlyhello omkar29041993/dockerassignment'
         
     stage "Push docker image to docker registry"
-        input 'Push docker image to docker registry?'
         sh 'docker push omkar29041993/dockerassignment'
         
-    stage "Remove docker container"
-        sh 'docker rm -f -v $(docker ps -aq)'
-        
-        
-    stage "Remove docker images"
+    stage "Remove docker container and docker images"
+        sh 'docker rm -f -v $(docker ps -aq)
         sh 'docker rmi python:2.7-slim'
         sh 'docker rmi friendlyhello'
 	
     stage "Creating docker service on production server"
-        sh 'docker stack deploy -c docker-compose.yml python-hello'
+        input "Check docker images on production server?"
+	sh 'docker stack deploy -c docker-compose.yml python-hello'
+    
+    stage "Remove docker service, network from production server after testing"
+    	sh 'docker rm service python-hello_web'
+	sh 'docker rm network python-hello_webnet'
 }
