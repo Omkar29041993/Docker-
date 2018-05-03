@@ -21,7 +21,7 @@ node()
         sh 'docker push omkar29041993/dockerassignment'
         
     stage "Remove docker container and docker images"
-        sh 'docker rm -f -v $(docker ps -aq)
+        sh 'docker rm -f -v $(docker ps -aq)'
         sh 'docker rmi python:2.7-slim'
         sh 'docker rmi friendlyhello'
 	
