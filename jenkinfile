@@ -28,9 +28,8 @@ node()
         input "Check docker images on production server?"
 	sh 'docker stack deploy -c docker-compose.yml python-hello'
     
-    stage "Remove docker service, network from production server after testing"
-    	input "Remove docker service and network form production server?"
-    	sh 'docker service rm python-hello_web'
-	sh 'docker network rm python-hello_webnet'
-	sh 'docker rmi omkar29041993/dockerassignment:stable'
+    stage "Remove docker service from production server after testing"
+    	input "Remove docker service python-hello?"
+    	sh 'docker stack rm python-hello'
+	sh 'docker rmi -f (docker images -aq)'
 }
