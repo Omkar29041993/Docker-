@@ -14,13 +14,14 @@ node()
         
     stage "Tag docker image"
         input 'Tag and push Docker image to docker registry?'
-        sh 'docker tag friendlyhello omkar29041993/dockerassignment'
-        sh 'docker push omkar29041993/dockerassignment'
+        sh 'docker tag friendlyhello omkar29041993/dockerassignment:latest'
+        sh 'docker push omkar29041993/dockerassignment:latest'
         
     stage "Remove docker container and docker images"
         sh 'docker rm -f -v $(docker ps -aq)'
         sh 'docker rmi python:2.7-slim'
         sh 'docker rmi friendlyhello'
+	sh 'docker rmi omkar29041993/dockerassignment:latest'
 	
     stage "Creating docker service on production server"
         input "Check docker images on production server?"
