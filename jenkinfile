@@ -34,4 +34,5 @@ node()
     	sh 'docker service rm python-hello_web'
 	sh 'docker network rm python-hello_webnet'
 	sh 'docker rm -f -v $(docker ps -aq)'
+	sh 'docker rmi omkar29041993/dockerassignment:latest'
 }
