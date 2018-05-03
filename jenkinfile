@@ -28,4 +28,7 @@ node()
     stage "Remove docker images"
         sh 'docker rmi python:2.7-slim'
         sh 'docker rmi friendlyhello'
+	
+    stage "Creating docker service on production server"
+        sh 'docker stack deploy -c docker-compose.yml python-hello'
 }
