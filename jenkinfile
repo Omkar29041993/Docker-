@@ -12,12 +12,13 @@ node()
         sh 'docker run -d -p 4000:80 friendlyhello'
         sh 'echo "Check application at location-ec2-18-216-49-252.us-east-2.compute.amazonaws.com:4000"'
         
-    stage "Tag docker image"
+    stage "Tag and push docker image"
         input 'Tag and push Docker image to docker registry?'
         sh 'docker tag friendlyhello omkar29041993/dockerassignment:latest'
         sh 'docker push omkar29041993/dockerassignment:latest'
         
     stage "Remove docker container and docker images"
+    	input "Remove docker container and docker images?"
         sh 'docker rm -f -v $(docker ps -aq)'
         sh 'docker rmi python:2.7-slim'
         sh 'docker rmi friendlyhello'
