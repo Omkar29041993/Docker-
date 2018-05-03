@@ -31,7 +31,7 @@ node()
     
     stage "Remove docker service, network from production server after testing"
     	input "Remove docker service and network form production server?"
-    	sh 'docker rm service python-hello_web'
-	sh 'docker rm network python-hello_webnet'
+    	sh 'docker servic rm python-hello_web'
+	sh 'docker network rm python-hello_webnet'
 	sh 'docker rm -f -v $(docker ps -aq)'
 }
