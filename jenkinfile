@@ -31,5 +31,6 @@ node()
     stage "Remove docker service from production server after testing"
     	input "Remove docker service python-hello?"
     	sh 'docker stack rm python-hello'
+	sh 'sleep 10'
 	sh 'docker rmi -f $(docker images -aq)'
 }
