@@ -10,4 +10,5 @@ docker-compose.yml
 To run docker app on production server.
 
 docker registry-
-I have created docker repository as omkar29041993/dockerassignment. You can create your repository.
+I have created docker repository as omkar29041993/dockerassignment. 
+You can create your repository and replace all necessay fields with your reposioty name
